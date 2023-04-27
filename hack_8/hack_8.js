@@ -9,7 +9,15 @@ const fetch = require('cross-fetch');
 
 async function fnTest() {
   //...
-  return
+  try {
+    let url = "https://jsonplaceholder.typicode.com/posts";
+    let response = await fetch(url);
+    let data = await response.json();
+    return data.length;
+
+  } catch (error) {
+    console.log(error.message)
+  }
 }
 
 module.exports = fnTest;

@@ -12,10 +12,19 @@
 } 
 */
 
+const axios = require('axios');
 
 async function fnTest() {
   //...
-  return 
+  const url = "https://jsonplaceholder.typicode.com/posts";
+  try {
+    let response = await axios.get(url);
+    let data = response.data.find(user => user.id === 2);
+    return data;
+  } catch (error) {
+    console.log(error.message)
+  }
+
 }
 
 module.exports = fnTest;
